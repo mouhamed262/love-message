@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محفظة البيتكوين - تسجيل الدخول</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: white;
+    }
+    
+    .login-container, .wallet-container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 450px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .wallet-container {
+        max-width: 600px;
+        text-align: center;
+    }
+    
+    .bitcoin-logo {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .bitcoin-icon {
+        font-size: 60px;
+        color: #f7931a;
+        margin-bottom: 10px;
+        animation: rotate 8s linear infinite;
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    h1 {
+        color: #f7931a;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+        text-align: center;
+    }
+    
+    .subtitle {
+        color: #ccc;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 0.9em;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #ddd;
+        font-weight: 500;
+    }
+    
+    input[type="password"], input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    input[type="password"]:focus, input[type="text"]:focus {
+        outline: none;
+        border-color: #f7931a;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 20px rgba(247, 147, 26, 0.3);
+    }
+    
+    input::placeholder {
+        color: #aaa;
+    }
+    
+    .login-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #f7931a, #ff6b35);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+    
+    .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(247, 147, 26, 0.4);
+    }
+    
+    .error-message {
+        color: #ff4757;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+        display: none;
+    }
+    
+    .love-message {
+        text-align: center;
+        padding: 40px;
+        animation: fadeInScale 1s ease forwards;
+    }
+    
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .love-text {
+        font-size: 3em;
+        color: #ff6b6b;
+        margin: 20px 0;
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+    
+    .heart-animation {
+        font-size: 2em;
+        margin: 20px;
+        display: inline-block;
+        animation: heartbeat 1.5s infinite;
+    }
+    
+    @keyframes heartbeat {
+        0%, 50%, 100% {
+            transform: scale(1);
+        }
+        25%, 75% {
+            transform: scale(1.2);
+        }
+    }
+    
+    .wallet-info {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid #f7931a;
+    }
+    
+    .balance {
+        font-size: 2em;
+        color: #4CAF50;
+        margin: 10px 0;
+    }
+    
+    .logout-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .logout-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .login-container, .wallet-container {
+            padding: 30px 20px;
+        }
+        
+        .love-text {
+            font-size: 2.5em;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- شاشة تسجيل الدخول -->
+    <div class="login-container" id="loginScreen">
+        <div class="bitcoin-logo">
+            <div class="bitcoin-icon">₿</div>
+            <h1>Bitcoin Wallet</h1>
+            <div class="subtitle">محفظة البيتكوين الآمنة</div>
+        </div>
+
+```
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        </div>
+        
+        <button type="submit" class="login-btn">تسجيل الدخول</button>
+        
+        <div class="error-message" id="errorMessage">
+            اسم المستخدم أو كلمة المرور غير صحيحة!
+        </div>
+    </form>
+</div>
+
+<!-- شاشة المحفظة -->
+<div class="wallet-container hidden" id="walletScreen">
+    <div class="bitcoin-logo">
+        <div class="bitcoin-icon">₿</div>
+        <h1>مرحباً بك في محفظتك</h1>
+    </div>
+    
+    <div class="love-message">
+        <div class="heart-animation">💖</div>
+        <div class="love-text">I will always love you</div>
+        <div class="heart-animation">💖</div>
+        
+        <div class="wallet-info">
+            <p>رصيد المحفظة:</p>
+            <div class="balance">∞ BTC</div>
+            <p style="color: #ccc; font-size: 0.9em;">رصيدك من الحب لا نهائي 💕</p>
+        </div>
+    </div>
+    
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+</div>
+
+<script>
+    // بيانات تسجيل الدخول (يمكنك تغييرها)
+    const validUsername = "R";
+    const validPassword = "112233";
+    
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+        
+        if (username === validUsername && password === validPassword) {
+            // تسجيل دخول ناجح
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('walletScreen').classList.remove('hidden');
+            errorMessage.style.display = 'none';
+        } else {
+            // خطأ في تسجيل الدخول
+            errorMessage.style.display = 'block';
+            
+            // هز الحاوية للإشارة للخطأ
+            const container = document.querySelector('.login-container');
+            container.style.animation = 'shake 0.5s ease';
+            setTimeout(() => {
+                container.style.animation = '';
+            }, 500);
+        }
+    });
+    
+    function logout() {
+        document.getElementById('walletScreen').classList.add('hidden');
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+    
+    // إضافة تأثير الاهتزاز عند الخطأ
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+```
+
+</body>
+</html>
